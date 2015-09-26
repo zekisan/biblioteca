@@ -13,6 +13,8 @@ public class Usuario {
     
     private String login, senha, perfil;
     
+    public Usuario(){}
+    
     public Usuario(String login, String senha, String perfil){
         this.login = login;
         this.senha = senha;
@@ -31,6 +33,11 @@ public class Usuario {
         return perfil;
     }
     
+    public boolean verificaLogin(String login, String senha){
+        return(this.login.equals(login) && this.senha.equals(senha));
+    }
     
-    
+    public boolean isAdmin() {
+        return perfil.equalsIgnoreCase("admin");
+    }
 }
