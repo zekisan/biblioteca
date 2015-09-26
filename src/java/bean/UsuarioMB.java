@@ -15,17 +15,17 @@ import model.Usuario;
  *
  * @author ezequiel
  */
-@ManagedBean
+@ManagedBean(eager = true)
 @ApplicationScoped
 public class UsuarioMB {
-//CRUD
+    //CRUD
     private List<Usuario> listaUsuarios;
     private Usuario usuarioSelecionado;
 
     public UsuarioMB() {
         usuarioSelecionado = new Usuario();
         listaUsuarios = new ArrayList<Usuario>();
-        listaUsuarios.add(new Usuario("admin", "admin", "admin"));
+        criarUsuarios();
     }
 
     public Usuario getUsuarioSelecionado() {
@@ -68,5 +68,10 @@ public class UsuarioMB {
     public void removerUsuario(Usuario usuario){
         listaUsuarios.remove(usuario);
     }
-    
+ 
+    private void criarUsuarios(){
+        listaUsuarios.add(new Usuario("admin", "admin", "admin"));
+        listaUsuarios.add(new Usuario("funcionario", "funcionario", "funcionario"));
+        listaUsuarios.add(new Usuario("cliente", "cliente", "cliente"));
+    }
 }
