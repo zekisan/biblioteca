@@ -20,15 +20,23 @@ public class Livro {
     private int ano;
     private boolean disponivel;
     
-    public Livro(int isbn, String titulo, ArrayList<Autor> autores, Editora editora, int ano){
+    public Livro(){}
+    
+    public Livro(int isbn, String titulo, String[] autores, Editora editora, int ano){
         this.isbn = isbn;
         this.titulo = titulo;
-        this.autores = autores;
+        cadastraAutores(autores);
         this.editora = editora;
         this.ano = ano;
         this.disponivel = true;
     }
 
+    public void cadastraAutores(String[] autores){
+        for(int i = 0; i < autores.length; i++){
+            this.autores.add(new Autor(autores[i]));
+        }
+    }
+    
     public int getIsbn() {
         return isbn;
     }
@@ -53,4 +61,20 @@ public class Livro {
         return disponivel;
     }
         
+    public String autoresToString(){
+        String texto = "";
+        for(int i = 0; i < autores.size(); i++){
+            texto += autores.get(i).getNome();
+            if(i < autores.size() - 1){
+                texto += ", ";
+            }
+        }
+        return texto;
+    }
+    
+    public String disponivelToString(){
+        if(disponivel) return "Sim";
+        
+        return "Não";
+    }
 }

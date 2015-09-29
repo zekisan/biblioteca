@@ -12,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import model.Usuario;
 
-@ManagedBean
+@ManagedBean(name = "loginMB")
 @SessionScoped
 public class LoginMB {
 
@@ -61,6 +61,7 @@ public class LoginMB {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.verificaLogin(login, senha)) {
                 usuarioLogado = usuario;
+                setUsuarioLogado(usuario);
                 if (usuario.isAdmin()) {
                     return ("/admin/index?faces-redirect=true");
                 } else {
@@ -76,6 +77,7 @@ public class LoginMB {
 
     public String realizaLogout() {
         usuarioLogado = null;
+        System.out.println("Logout! ");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return ("/login?faces-redirect=true");
     }
