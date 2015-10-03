@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/bean/LoginMB.java</file>
-            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/filtro/FiltroAcessoAdmin.java</file>
+            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/web/admin/livros/editar.xhtml</file>
             <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/web/admin/livros.xhtml</file>
-            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/web/templates/admin.xhtml</file>
+            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/model/Editora.java</file>
+            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/model/ConversorEditora.java</file>
+            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/model/EditoraDAO.java</file>
             <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/bean/LivroMB.java</file>
-            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/bean/UsuarioMB.java</file>
-            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/web/templates/header.xhtml</file>
+            <file>file:/home/ezequiel/NetBeansProjects/Biblioteca/src/java/model/Livro.java</file>
         </group>
     </open-files>
 </project-private>

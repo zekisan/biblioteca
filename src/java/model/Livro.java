@@ -15,7 +15,7 @@ public class Livro {
     
     private int isbn;
     private String titulo;
-    private ArrayList<Autor> autores = new ArrayList<Autor>();
+    private ArrayList<String> autores = new ArrayList<String>();
     private Editora editora;
     private int ano;
     private boolean disponivel;
@@ -33,7 +33,7 @@ public class Livro {
 
     public void cadastraAutores(String[] autores){
         for(int i = 0; i < autores.length; i++){
-            this.autores.add(new Autor(autores[i]));
+            this.autores.add(autores[i]);
         }
     }
     
@@ -45,7 +45,7 @@ public class Livro {
         return titulo;
     }
 
-    public ArrayList<Autor> getAutores() {
+    public ArrayList<String> getAutores() {
         return autores;
     }
 
@@ -57,6 +57,40 @@ public class Livro {
         return ano;
     }
 
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutores(ArrayList<String> autores) {
+        this.autores = autores;
+    }
+    
+    public void adicionaAutor(){
+        this.autores.add("");
+    }
+
+    public void removeAutor(){
+        this.autores.remove(autores.size() - 1);
+    }
+    
+    public void setEditora(Editora editora) {
+        this.editora = editora;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+    
+    
+
     public boolean isDisponivel() {
         return disponivel;
     }
@@ -64,7 +98,7 @@ public class Livro {
     public String autoresToString(){
         String texto = "";
         for(int i = 0; i < autores.size(); i++){
-            texto += autores.get(i).getNome();
+            texto += autores.get(i);
             if(i < autores.size() - 1){
                 texto += ", ";
             }
