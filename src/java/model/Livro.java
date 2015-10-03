@@ -13,14 +13,16 @@ import java.util.ArrayList;
  */
 public class Livro {
     
-    private int isbn;
+    private long isbn;
     private String titulo;
     private ArrayList<String> autores = new ArrayList<String>();
     private Editora editora;
     private int ano;
     private boolean disponivel;
     
-    public Livro(){}
+    public Livro(){
+        editora = new Editora();
+    }
     
     public Livro(int isbn, String titulo, String[] autores, Editora editora, int ano){
         this.isbn = isbn;
@@ -37,7 +39,7 @@ public class Livro {
         }
     }
     
-    public int getIsbn() {
+    public long getIsbn() {
         return isbn;
     }
 
@@ -57,7 +59,7 @@ public class Livro {
         return ano;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
 

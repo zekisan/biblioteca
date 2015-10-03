@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Editar Livro</h3>
+                        <h3>Cadastrar Livro</h3>
                         <h:form id="livro">
                             <div class="form-group">
                                 <h:outputLabel for="idTitulo" value="Título:"/>
@@ -60,7 +60,7 @@
                             </h:selectOneMenu>
                             </div>
                             <div class="form-group">
-                                <h:commandButton value="Salvar" styleClass="btn btn-success" action="#{livroMB.atualizarLivro()}"/>
+                                <h:commandButton value="Salvar" styleClass="btn btn-success" action="#{livroMB.adicionarLivro()}"/>
                                 <h:button value="Voltar" outcome="/admin/livros" class="btn btn-default pull-right"/>
                             </div> 
                         </h:form>

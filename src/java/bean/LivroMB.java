@@ -109,4 +109,26 @@ public class LivroMB {
     public void removeAutor(){
         livroSelecionado.removeAutor();
     }
+    
+    public String adicionarLivro()
+    {
+        livros.add(livroSelecionado);
+        return(this.novoLivro());
+    }
+    
+    public String novoLivro(){
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = facesContext.getExternalContext();
+        Map<String, String> parameterMap = (Map<String, String>)   externalContext.getRequestParameterMap();
+        int pos = 0;
+        for (Map.Entry<String, String> item : parameterMap.entrySet()) {
+            if(item.getKey().contains("idAutores")){
+                livroSelecionado.getAutores().set(pos, item.getValue());
+                pos++;
+            }
+        }
+        livroSelecionado.setEditora(editoraSelecionada);
+        livroSelecionado = new Livro();
+        return("/admin/livros?faces-redirect=true");
+    }
 }

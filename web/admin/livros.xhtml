@@ -8,13 +8,14 @@
         <ui:define name="content">
             <div class="container">
                 <div class="row">
-                    <h1>Livros</h1>
+                    <div class="col-md-6">
+                        <h1>Livros</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <h:link outcome="/admin/livros/novo" styleClass="btn btn-success pull-right" value="Cadastrar Livro"/>
+                    </div>
                     <h:form>
                         <h:dataTable var="livro" value="#{livroMB.listaLivros()}" styleClass="table table-striped">
-                            <f:facet name="header">
-                                <h:outputText value="Tabela de Livros" />
-                            </f:facet>
-
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Título" />
