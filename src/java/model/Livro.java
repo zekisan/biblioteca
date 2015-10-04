@@ -122,4 +122,8 @@ public class Livro {
         
         return "Não";
     }
+    
+    public String toString(){
+        return titulo;
+    }
 }

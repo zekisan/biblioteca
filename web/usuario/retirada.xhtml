@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/templates/usuario.xhtml">
+        <ui:define name="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Nova Retirada</h1>
+                    </div>
+                    <h:form id="retirada">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h:outputLabel for="idLivros" value="Livros:" />
+                                <h:dataTable value="#{retiradaMB.livrosSelecionados}" var="livro" id="idLivros">
+                                    <h:column>
+                                        <div class="col-md-8">
+                                            <h:selectOneMenu id="idDisponivel" styleClass="form-control" value="#{retiradaMB.getLivrosSelecionados()}">
+                                                <f:selectItems value="#{retiradaMB.livrosDisponiveis}" />
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h:commandLink styleClass="btn btn-danger">
+                                                <f:ajax listener="#{retiradaMB.removeLivro()}" execute="@form" render="@form" />
+                                                Remover
+                                            </h:commandLink>
+                                        </div>
+                                    </h:column>
+                                </h:dataTable>
+                                <h:commandLink styleClass="btn btn-primary">
+                                    <f:ajax listener="#{retiradaMB.adicionaLivro()}" execute="@form" render="@form" />
+                                    Adicionar
+                                </h:commandLink>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton value="Salvar" styleClass="btn btn-success" action="#{usuarioMB.adicionarUsuario()}"/>
+                            <h:button value="Voltar" outcome="/admin/usuarios" class="btn btn-default pull-right"/>
+                        </div> 
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

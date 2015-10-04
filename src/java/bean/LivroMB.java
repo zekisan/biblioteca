@@ -19,7 +19,7 @@ import model.Livro;
  *
  * @author ezequiel
  */
-@ManagedBean
+@ManagedBean(eager = true)
 @ApplicationScoped
 public class LivroMB {
 
@@ -123,5 +123,13 @@ public class LivroMB {
                 pos++;
             }
         }
+    }
+    
+    public ArrayList<Livro> getLivrosDisponiveis(){
+        ArrayList<Livro> livrosDisponiveis = new ArrayList<Livro>();
+        for(Livro l: livros){
+            if(l.isDisponivel()) livrosDisponiveis.add(l);
+        }
+        return livrosDisponiveis;
     }
 }

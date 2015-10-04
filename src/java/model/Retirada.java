@@ -19,6 +19,8 @@ public class Retirada {
     private Date dataPrevistaEntrega;
     private Date dataDevolucao;
     
+    public Retirada(){}
+    
     public Retirada(Usuario cliente, Livro[] livros, Date dataRetirada){
         this.cliente = cliente;
         this.livros = livros;
