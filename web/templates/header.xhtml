@@ -16,9 +16,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><h:link value="Livros" outcome="/admin/livros"/></li>
-                        <li><a href="services.html">MENU 1</a></li>
-                        <li><a href="portfolio.html">MENU 2</a></li>
-                        <li><a href="pricing.html">MENU 3</a></li>
+                        <li><h:link value="Usuários" outcome="/admin/usuarios"/></li>
+                        <li><a href="portfolio.html">Relatórios</a></li>
+                        <li><a href="#"><h:outputText value="Bem vindo, #{loginMB.usuarioLogado.nome}"/></a></li>
                         <li><h:form>
                             <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
                         </h:form></li>

@@ -29,9 +29,6 @@ public class LivroMB {
     private Editora editoraSelecionada;
     EditoraDAO editoraDAO;
     
-    /**
-     * Creates a new instance of LivroMB
-     */
     public LivroMB() {
         livroSelecionado = new Livro();
         editoraDAO  = new EditoraDAO();
@@ -76,16 +73,7 @@ public class LivroMB {
     }
     public String atualizarLivro()
     {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        ExternalContext externalContext = facesContext.getExternalContext();
-        Map<String, String> parameterMap = (Map<String, String>)   externalContext.getRequestParameterMap();
-        int pos = 0;
-        for (Map.Entry<String, String> item : parameterMap.entrySet()) {
-            if(item.getKey().contains("idAutores")){
-                livroSelecionado.getAutores().set(pos, item.getValue());
-                pos++;
-            }
-        }
+        populaAutores();
         livroSelecionado.setEditora(editoraSelecionada);
         return("/admin/livros?faces-redirect=true");
     }
@@ -112,11 +100,19 @@ public class LivroMB {
     
     public String adicionarLivro()
     {
+        livroSelecionado.setEditora(editoraSelecionada);
+        populaAutores();
         livros.add(livroSelecionado);
-        return(this.novoLivro());
+        return("/admin/livros?faces-redirect=true");
     }
     
     public String novoLivro(){
+        
+        livroSelecionado = new Livro();
+        return("/admin/livros/novo?faces-redirect=true");
+    }
+    
+    private void populaAutores(){
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ExternalContext externalContext = facesContext.getExternalContext();
         Map<String, String> parameterMap = (Map<String, String>)   externalContext.getRequestParameterMap();
@@ -127,8 +123,5 @@ public class LivroMB {
                 pos++;
             }
         }
-        livroSelecionado.setEditora(editoraSelecionada);
-        livroSelecionado = new Livro();
-        return("/admin/livros?faces-redirect=true");
     }
 }

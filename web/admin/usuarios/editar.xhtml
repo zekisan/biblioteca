@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/templates/admin.xhtml">
+        <ui:define name="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Editar Usuário</h3>
+                        <h:form id="usuario">
+                            <div class="form-group">
+                                <h:outputLabel for="idMatricula" value="Matrícula:"/>
+                                <h:inputText styleClass="form-control" id="idMatricula" value="#{usuarioMB.usuarioSelecionado.matricula}"  />
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="idNome" value="Nome:"/>
+                                <h:inputText id="idNome" styleClass="form-control" value="#{usuarioMB.usuarioSelecionado.nome}" />
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="idTelefone" value="Telefone:"/>
+                                <h:inputText id="idTelefone" styleClass="form-control" value="#{usuarioMB.usuarioSelecionado.telefone}" />
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="idDisponivel" value="Disponível:" />
+                                <h:selectOneMenu id="idDisponivel" styleClass="form-control" value="#{usuarioMB.usuarioSelecionado.perfil}">
+                                    <f:selectItem itemLabel="Admin" itemValue="admin" />
+                                    <f:selectItem itemLabel="Cliente" itemValue="cliente" />
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="idLogin" value="Login:"/>
+                                <h:inputText id="idLogin" styleClass="form-control" value="#{usuarioMB.usuarioSelecionado.login}" />
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="idSenha" value="Senha:"/>
+                                <h:inputSecret id="idSenha" styleClass="form-control" value="#{usuarioMB.usuarioSelecionado.senha}" />
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton value="Salvar" styleClass="btn btn-success" action="#{usuarioMB.atualizarUsuario()}"/>
+                                <h:button value="Voltar" outcome="/admin/usuarios" class="btn btn-default pull-right"/>
+                            </div> 
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+
+

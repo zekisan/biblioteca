@@ -9,61 +9,54 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1>Livros</h1>
+                        <h1>Usuários</h1>
                     </div>
                     <div class="col-md-6">
                         <h:form>
-                            <h:commandButton value="Cadastrar Livro" action="#{livroMB.novoLivro()}" styleClass="btn btn-success pull-right"/>
+                            <h:commandButton value="Cadastrar Usuario" action="#{usuarioMB.novoUsuario()}" styleClass="btn btn-success pull-right"/>
                         </h:form>
                     </div>
                     <h:form>
-                        <h:dataTable var="livro" value="#{livroMB.listaLivros()}" styleClass="table table-striped">
+                        <h:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}" styleClass="table table-striped">
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Título" />
+                                    <h:outputText value="Matrícula" />
                                 </f:facet>
-                                <h:outputText id="idTitulo" value="#{livro.titulo}"  />
+                                <h:outputText id="idMatricula" value="#{usuario.matricula}"  />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Autores" />
+                                    <h:outputText value="Nome" />
                                 </f:facet>
-                                <h:outputText id="idAutores" value="#{livro.autoresToString()}" />
+                                <h:outputText id="idNome" value="#{usuario.nome}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="ISBN" />
+                                    <h:outputText value="Telefone" />
                                 </f:facet>
-                                <h:outputText id="idISBN" value="#{livro.isbn}" />
+                                <h:outputText id="idTelefone" value="#{usuario.telefone}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Editora" />
+                                    <h:outputText value="Login" />
                                 </f:facet>
-                                <h:outputText  id="idEditora" value="#{livro.editora.nome}"/>
+                                <h:outputText  id="idLogin" value="#{usuario.login}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Ano" />
+                                    <h:outputText value="Perfil" />
                                 </f:facet>
-                                <h:outputText id="idAno" value="#{livro.ano}" />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Disponível" />
-                                </f:facet>
-                                <h:outputText id="idDisponivel" value="#{livro.disponivelToString()}" />
+                                <h:outputText id="idPerfil" value="#{usuario.perfil}" />
                             </h:column>
                             <h:column >
                                 <f:facet name="header">
                                     <h:outputText value="Operação" />
                                 </f:facet>
-                                    <h:commandLink value="Editar " action="#{livroMB.editarLivro(livro)}"/>
+                                <h:commandLink value="Editar " action="#{usuarioMB.editarUsuario(usuario)}"/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <h:commandLink value="Remover" action="#{livroMB.removerLivro(livro)}"/>
+                                    <h:commandLink value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
                             </h:column>
                         </h:dataTable>
-                        
                         <br/><br/>
                     </h:form>
                 </div>

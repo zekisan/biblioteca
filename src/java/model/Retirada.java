@@ -13,19 +13,19 @@ import java.util.Date;
  */
 public class Retirada {
     
-    private Pessoa cliente;
+    private Usuario cliente;
     private Livro[] livros = new Livro[3];
     private Date dataRetirada;
     private Date dataPrevistaEntrega;
     private Date dataDevolucao;
     
-    public Retirada(Pessoa cliente, Livro[] livros, Date dataRetirada){
+    public Retirada(Usuario cliente, Livro[] livros, Date dataRetirada){
         this.cliente = cliente;
         this.livros = livros;
         this.dataRetirada = dataRetirada;
     }
 
-    public Pessoa getCliente() {
+    public Usuario getCliente() {
         return cliente;
     }
 

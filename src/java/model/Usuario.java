@@ -11,13 +11,43 @@ package model;
  */
 public class Usuario {
     
+    private long matricula;
+    private String nome;
+    private String telefone;
     private String login, senha, perfil;
     
     public Usuario(){}
     
-    public Usuario(String login, String senha, String perfil){
+    public Usuario(long matricula, String nome, String telefone, String login, String senha, String perfil){
+        this.matricula = matricula;
+        this.nome = nome;
+        this.telefone = telefone;
         this.login = login;
         this.senha = senha;
+        this.perfil = perfil;
+    }
+
+    public void setMatricula(long matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
 
@@ -31,6 +61,18 @@ public class Usuario {
 
     public String getPerfil() {
         return perfil;
+    }
+
+    public long getMatricula() {
+        return matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
     }
     
     public boolean verificaLogin(String login, String senha){

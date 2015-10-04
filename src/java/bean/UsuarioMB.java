@@ -35,7 +35,7 @@ public class UsuarioMB {
     public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
         this.usuarioSelecionado = usuarioSelecionado;
     }
-
+    
     public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
@@ -43,26 +43,26 @@ public class UsuarioMB {
     public void setListaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
     }
-    
 
     public String novoUsuario(){
         usuarioSelecionado=new Usuario();
-        return("/admin/formularioCadastro?faces-redirect=true");
+        return("/admin/usuarios/novo?faces-redirect=true");
     }
 
     public String adicionarUsuario()
     {
         listaUsuarios.add(usuarioSelecionado);
-        return(this.novoUsuario());
+        return("/admin/usuarios?faces-redirect=true");
     }
 
     public String editarUsuario(Usuario u){
         usuarioSelecionado = u;
-        return("/admin/formularioEdicao?faces-redirect=true");
+        return("/admin/usuarios/editar?faces-redirect=true");
     }
     public String atualizarUsuario()
     {
-        return("/admin/index?faces-redirect=true");
+        usuarioSelecionado=new Usuario();
+        return("/admin/usuarios?faces-redirect=true");
     }
 
     public void removerUsuario(Usuario usuario){
@@ -70,8 +70,8 @@ public class UsuarioMB {
     }
  
     private void criarUsuarios(){
-        listaUsuarios.add(new Usuario("admin", "admin", "admin"));
-        listaUsuarios.add(new Usuario("funcionario", "funcionario", "funcionario"));
-        listaUsuarios.add(new Usuario("cliente", "cliente", "cliente"));
+        listaUsuarios.add(new Usuario(123456789, "João das Neves", "9988776655", "admin", "admin", "admin"));
+        listaUsuarios.add(new Usuario(987654321, "Márcia Flores", "77889900", "marcia", "marcia", "cliente"));
+        listaUsuarios.add(new Usuario(654321234, "James Bond", "55443322", "james", "james", "cliente"));
     }
 }
