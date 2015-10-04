@@ -6,6 +6,10 @@
 package model;
 
 import java.util.ArrayList;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 /**
  *
@@ -13,10 +17,15 @@ import java.util.ArrayList;
  */
 public class Livro {
     
+    @NotNull(message="ISBN não pode ficar em branco.")
     private long isbn;
+    
+    @NotEmpty(message="Título não pode ficar em branco.")
     private String titulo;
     private ArrayList<String> autores = new ArrayList<String>();
     private Editora editora;
+    
+    @NotNull(message="Ano não pode ficar em branco.")
     private int ano;
     private boolean disponivel;
     
