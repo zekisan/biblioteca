@@ -6,13 +6,14 @@
 package bean;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import model.Livro;
 import model.Retirada;
 
-@ManagedBean
+@ManagedBean(eager = true)
 @ApplicationScoped
 public class RetiradaMB {
 
@@ -37,17 +38,13 @@ public class RetiradaMB {
     public void setLivroSelecionado(Livro livro){
         this.livroSelecionado = livro;
     }
-    
-    public void setLivrosSelecionados(ArrayList<Livro> livrosSelecionados){
-        this.livrosSelecionados = livrosSelecionados;
-    }
 
     public Livro getLivroSelecionado() {
         return livroSelecionado;
     }
 
     public ArrayList<Livro> getLivrosSelecionados() {
-        return livrosSelecionados;
+        return retirada.getLivros();
     }
     
     public void setRetirada(Retirada retirada) {
@@ -57,8 +54,20 @@ public class RetiradaMB {
     public Retirada getRetirada() {
         return retirada;
     }
+    
+    public Date getDataPrevistaEntrega(){
+        return retirada.getDataPrevistaEntrega();
+    }
+    
+    public void setDataPrevistaEntrega(Date dataPrevistaEntrega){
+        retirada.setDataPrevistaEntrega(dataPrevistaEntrega);
+    }
 
     public void adicionaLivro(){
-        livrosSelecionados.add(livroSelecionado );
+        retirada.adicionaLivro();
+    }
+    
+    public String calculaDataEntrega(){
+        return "oi";
     }
 }

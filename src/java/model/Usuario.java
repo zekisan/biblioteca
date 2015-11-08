@@ -1,17 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
-/**
- *
- * @author ezequiel
- */
-public class Usuario {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+public class Usuario implements Serializable {
     
-    private long matricula;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private Long matricula;
     private String nome;
     private String telefone;
     private String login, senha, perfil;
@@ -27,7 +31,15 @@ public class Usuario {
         this.perfil = perfil;
     }
 
-    public void setMatricula(long matricula) {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setMatricula(Long matricula) {
         this.matricula = matricula;
     }
 
@@ -63,7 +75,7 @@ public class Usuario {
         return perfil;
     }
 
-    public long getMatricula() {
+    public Long getMatricula() {
         return matricula;
     }
 
@@ -81,5 +93,25 @@ public class Usuario {
     
     public boolean isAdmin() {
         return perfil.equalsIgnoreCase("admin");
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuario)) {
+            return false;
+        }
+        Usuario other = (Usuario) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 }

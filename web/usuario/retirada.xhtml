@@ -8,33 +8,32 @@
         <ui:define name="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h1>Nova Retirada</h1>
-                    </div>
+                   <h1>Nova Retirada</h1>
                     <h:form id="retirada">
-                        <div class="col-md-12">
+                        <f:ajax listener="#{retiradaMB.calculaDataEntrega()}" event="change" execute="@form" render="idEntrega">
                             <div class="form-group">
                                 <h:outputLabel for="idLivros" value="Livros:" />
-                                <h:dataTable value="#{retiradaMB.livrosSelecionados}" var="livro" id="idLivros">
-                                    <h:column>
-                                        <div class="col-md-8">
-                                            <h:selectOneMenu id="idDisponivel" styleClass="form-control" value="#{retiradaMB.getLivrosSelecionados()}">
-                                                <f:selectItems value="#{retiradaMB.livrosDisponiveis}" />
-                                            </h:selectOneMenu>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h:commandLink styleClass="btn btn-danger">
-                                                <f:ajax listener="#{retiradaMB.removeLivro()}" execute="@form" render="@form" />
-                                                Remover
-                                            </h:commandLink>
-                                        </div>
-                                    </h:column>
-                                </h:dataTable>
-                                <h:commandLink styleClass="btn btn-primary">
-                                    <f:ajax listener="#{retiradaMB.adicionaLivro()}" execute="@form" render="@form" />
-                                    Adicionar
-                                </h:commandLink>
+                                <h:selectOneMenu id="idLivros" styleClass="form-control" value="#{retiradaMB.livrosSelecionados}">
+                                    <f:selectItem itemValue="#{null}" itemLabel="" />
+                                    <f:selectItems value="#{retiradaMB.livrosDisponiveis}" />
+                                </h:selectOneMenu>
                             </div>
+                            <div class="form-group">
+                                <h:selectOneMenu id="idLivros2" styleClass="form-control" value="#{retiradaMB.livrosSelecionados}">
+                                    <f:selectItem itemValue="#{null}" itemLabel="" />
+                                    <f:selectItems value="#{retiradaMB.livrosDisponiveis}" />
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="form-group">
+                                <h:selectOneMenu id="idLivros3" styleClass="form-control" value="#{retiradaMB.livrosSelecionados}">
+                                    <f:selectItem itemValue="#{null}" itemLabel="" />
+                                    <f:selectItems value="#{retiradaMB.livrosDisponiveis}" />
+                                </h:selectOneMenu>
+                            </div>
+                         </f:ajax >
+                        <div class="form-group">
+                            <h:outputLabel for="idEntrega" value="Data de Entrega:" />
+                            
                         </div>
                         <div class="form-group">
                             <h:commandButton value="Salvar" styleClass="btn btn-success" action="#{usuarioMB.adicionarUsuario()}"/>
